@@ -1,0 +1,30 @@
+Intro Related to Graph and Tree 
+Basic Terminology:
+
+Node and Edges
+1->2->3
+: 1,2,3 are nodes
+: 1-> 2 edge // Unidirectional Edge
+
+Tree : Graph without Cycle
+Graph : Having Tree
+
+: Tree having N nodes then it will have n-1 edges.
+
+Connected and unConnected Component
+
+Acyclic and Cyclic
+: Acyclic Undirected Graph -> Tree
+: DACyclic or UDAG -> Graph
+
+Strongly Connected Component
+: A strongly connected component is the portion of a directed graph 
+  in which there is a path from each vertex to another vertex. 
+  It is applicable only on a directed graph.
+
+" Collection of all the components of Graphs is called Forest."
+
+Leaf Node : Having no child node
+Height of a Tree : max distance from root node to leaf node.
+Depth of a Tree : Distance between a[i] node from root node
+LCA : Fisrt Common Ancestor of two or more node
