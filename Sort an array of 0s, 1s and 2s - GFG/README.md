@@ -1,7 +1,6 @@
 # Sort an array of 0s, 1s and 2s
-## Easy 
-<div class="problem-statement">
-                <p></p><p><span style="font-size:18px">Given an array of size N containing only 0s, 1s, and 2s; sort the array in ascending order.</span></p>
+## Easy
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given an array of size N containing only 0s, 1s, and 2s; sort the array in ascending order.</span></p>
 
 <p><br>
 <span style="font-size:18px"><strong>Example 1:</strong></span></p>
@@ -38,5 +37,4 @@ You don't need to read input or print anything. Your task is to complete the fun
 <span style="font-size:18px"><strong>Constraints:</strong><br>
 1 &lt;= N &lt;= 10^6<br>
 0 &lt;= A[i] &lt;= 2</span></p>
- <p></p>
-            </div>
+</div>
