@@ -20,7 +20,7 @@ public:
         ListNode* fast = head;
         
         //slow-fast pointer concept
-        while(fast !=NULL and fast->next !=NULL)
+        while(fast and fast->next)
         {
             slow = slow->next;
             fast = fast->next->next;
