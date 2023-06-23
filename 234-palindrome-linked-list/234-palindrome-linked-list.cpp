@@ -28,7 +28,7 @@ public:
         
         //reverse a linked list concept
         ListNode* pre = NULL;
-        while(slow !=NULL){
+        while(slow){
             ListNode* temp = slow->next;
             slow->next = pre;
             pre = slow;
