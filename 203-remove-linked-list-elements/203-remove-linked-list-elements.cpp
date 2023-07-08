@@ -11,7 +11,8 @@
 class Solution {
 public:
     ListNode* removeElements(ListNode* head, int val) {
-            while(head != NULL && head->val == val) // if all the elements are same
+        
+          while(head != NULL && head->val == val) // if all the elements are same
         {
             head = head->next;
         }
@@ -19,20 +20,18 @@ public:
         if(head == NULL)
             return NULL;
         
-        ListNode* pointer;
-        pointer = head;
-
-        while (pointer->next != NULL)  // removing ftom middle of the linked list
-        {
-            if(pointer->next->val == val)
+        ListNode* slow = head;
+        
+        while(slow->next){
+            if(slow->next->val == val)
             {
-                pointer->next = pointer->next->next;
+                slow->next = slow->next->next;
             }
             else
             {
-                pointer = pointer->next;    
+                slow = slow->next;
             }
         }
         return head;
-    }
+    } 
 };
