@@ -1,29 +1,29 @@
 class Solution {
 public:
     vector<int> findAnagrams(string s, string p) {
+        int s_len = s.length();
+        int p_len = p.length();
+        
+        if(s.size() < p.size()) return {};
+        
+        vector<int> freq_p(26,0);
+        vector<int> window(26,0);
+        
+        //first window
+        for(int i=0;i<p_len;i++){
+            freq_p[p[i]-'a']++;
+            window[s[i]-'a']++;
+        }
+        
         vector<int> ans;
+        if(freq_p == window) ans.push_back(0);
         
-        int n = s.size();
-        int p_size = p.size();
-        vector<int> p_count(26, 0);  // Frequency count of characters in p
-        vector<int> s_count(26, 0);  // Frequency count of characters in sliding window
-        
-        for (char c : p) {
-            p_count[c - 'a']++;
-        }
-        
-        for (int i = 0; i < n; i++) {
-            s_count[s[i] - 'a']++;  // Add the current character to the sliding window
+        for(int i=p_len;i<s_len;i++){
+            window[s[i-p_len] - 'a']--;
+            window[s[i] - 'a']++;
             
-            if (i >= p_size) {
-                s_count[s[i - p_size] - 'a']--;  // Remove the first character of the previous sliding window
-            }
-            
-            if (s_count == p_count) {
-                ans.push_back(i - p_size + 1);  // Add the starting index of anagram occurrence
-            }
+            if(freq_p == window) ans.push_back(i-p_len+1);
         }
-        
         return ans;
     }
 };
