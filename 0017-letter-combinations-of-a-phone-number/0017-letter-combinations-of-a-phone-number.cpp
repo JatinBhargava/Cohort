@@ -1,24 +1,33 @@
 class Solution {
-public:
-    void generateCombos(int idx, string& digits, string& temp, vector<string>& sol, vector<string>& charMap){
-        if(idx==digits.length()){
-            if(temp.length()) sol.push_back(temp);
+private:
+    void solve(string &digits, vector<string>&ans, string &temp, int idx, vector<string> &mapping){
+
+        if(idx >= digits.size()){
+            ans.push_back(temp);
             return;
         }
-        int num=digits[idx]-'0';
-        string str=charMap[num];
 
-        for(int i=0;i<str.length();i++){
-            temp.push_back(str[i]);
-            generateCombos(idx+1, digits, temp, sol, charMap);
+        int num = digits[idx] - '0';
+        string s = mapping[num];
+
+        for(int i=0;i<s.size();i++){
+            temp.push_back(s[i]);
+            solve(digits,ans,temp,idx+1,mapping);
             temp.pop_back();
         }
     }
+
+public:
     vector<string> letterCombinations(string digits) {
+        vector<string>ans;
         string temp;
-        vector<string> sol;
-        vector<string> charMap={"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
-        generateCombos(0, digits, temp, sol, charMap);
-        return sol;
+        if(digits.size() == 0)
+            return ans;
+        vector<string> mapping = {
+            "","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"
+        };
+        solve(digits,ans,temp,0,mapping);
+        return ans;
+
     }
 };
