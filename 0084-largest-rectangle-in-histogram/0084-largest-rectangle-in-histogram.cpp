@@ -5,39 +5,39 @@ public:
         int ans = 0;
 
         // store index of array
-        stack<int> stack;
+        stack<int>stack;
         int leftsmall[n], rightsmall[n];
 
-        for (int i = 0; i < n; i++) {
-            while (!stack.empty() && heights[stack.top()] >= heights[i])
+        for(int i=0;i<n;i++){
+            while(!stack.empty() and heights[stack.top()] >= heights[i])
                 stack.pop();
 
-            if (stack.empty())
+            if(stack.empty())
                 leftsmall[i] = 0;
             else
-                leftsmall[i] = stack.top() + 1;
-
+                leftsmall[i] = stack.top()+1;
+            
             stack.push(i);
         }
 
-        while (!stack.empty())
+        while(!stack.empty())
             stack.pop();
 
-        for (int i = n - 1; i >= 0; i--) {
-            while (!stack.empty() && heights[stack.top()] >= heights[i])
+         for(int i=n-1;i>=0;i--){
+            while(!stack.empty() and heights[stack.top()] >= heights[i])
                 stack.pop();
 
-            if (stack.empty())
-                rightsmall[i] = n - 1;
+            if(stack.empty())
+                rightsmall[i] = n-1;
             else
-                rightsmall[i] = stack.top() - 1;
-
+                rightsmall[i] = stack.top()-1;
+            
             stack.push(i);
         }
 
-        int maxi = 0;
-        for (int i = 0; i < n; i++) {
-            maxi = max(maxi, (rightsmall[i] - leftsmall[i] + 1) * heights[i]);
+        int maxi = 0; 
+        for(int i=0;i<n;i++){
+            maxi = max(maxi,(rightsmall[i] - leftsmall[i] +1) * heights[i]);
         }
         return maxi;
     }
